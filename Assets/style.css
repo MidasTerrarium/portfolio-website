@@ -91,7 +91,15 @@ header, section
     justify-content: center;
     align-items: flex-start;
     flex-wrap: wrap;
-    gap: 4em;
+    gap: 1em;
+}
+
+.portfolio-piece-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  gap: 2em;
 }
 
 header img
@@ -135,7 +143,7 @@ h1
     width: 100%;
     text-decoration: none;
     color: white;
-    background-color: var(--primary-color);
+    background-color: var(--base-color);
     padding: 0.75em 1.25em;
     border-radius: 0.25em;
     font-weight: 600;
@@ -173,5 +181,11 @@ strong
 .juice-cube-text
 {
     color: var(--juice-cube-red);
+    font-weight: bold;
+}
+
+em
+{
+    color: var(--secondary-color);
     font-weight: bold;
 }
