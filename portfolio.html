@@ -11,11 +11,13 @@
     <header>
         <div class="portfolio-piece-container">
             <div class="clickable-image-container">
-                <a href="https://store.steampowered.com/app/3680510/Sip_Fisher/" target="_blank" rel="noopener noreferrer"><img width="500px" src="Images/SipFisherMainCapsule.png"></a>
+                <a id="section-link" href="" target="_blank" rel="noopener noreferrer">
+                    <img id="section-image" width="500px" src="">
+                </a>
                 <!-- <a href="" class="full-container-button" style="background-color: grey">Store Page</a> -->
             </div>
             <div class = "text-container">
-                <h1 id="title">Sip Fisher</h1>
+                <h1 id="title">Template Title</h1>
                 <p>
                     Sip Fisher is the cozy incremental game about sucking a lake up with a straw. It was a short student project with only <strong>three months development</strong>.
                     It has grossed over <strong>$130,000</strong> in revenue since it's release in August, 2025.
@@ -34,7 +36,7 @@
     <div id="container"></div>
 
     <script>
-        const files = ["sip-fisher", "sip-fisher", "sip-fisher"]
+        const files = ["sip-fisher","horse-riding-classic"]
         const template = document.getElementById('portfolio-section');
         for (let i = 0; i < files.length; i++)
         {
@@ -42,7 +44,17 @@
             fetch('portfolio-assets/'+files[i]+'.md')
             .then(response => response.text())
             .then(data => {
-                clone.getElementById('title').textContent = data;
+                var lines = data.split(/\r?\n/);
+                var title = lines[0].replace("TITLE:", "");
+                var imagePath = lines[1].replace("IMAGE:","");
+                var steamLink = lines[2].replace("STEAMLINK:","");
+
+                clone.getElementById('title').textContent = title;
+                const sectionImage = clone.getElementById('section-image');
+                sectionImage.src = imagePath;
+                const sectionLink = clone.getElementById('section-link');
+                sectionLink.href = steamLink;
+
                 container.appendChild(clone);
             })
             
