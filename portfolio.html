@@ -18,14 +18,9 @@
             </div>
             <div class = "text-container">
                 <h1 id="title">Template Title</h1>
-                <p>
-                    Sip Fisher is the cozy incremental game about sucking a lake up with a straw. It was a short student project with only <strong>three months development</strong>.
-                    It has grossed over <strong>$130,000</strong> in revenue since it's release in August, 2025.
-                    <br>
-                    <br>
-                    <i>I was brought on to this project initially as a <em>designer</em> and the sole <em>market researcher</em>. 
-                    I was the primary <em>narrative designer</em>, focused on the game's ending and the character writing for our loveable shopkeep.
-                    Post release, I became the <em>project lead</em> for content updates and bug fixes, working with a smaller team.</i>
+                <p id="description">
+                    Sample description
+                </p>
             </div>
             <a href="" class="full-container-button">▼</a>
         </div>
@@ -54,6 +49,16 @@
                 sectionImage.src = imagePath;
                 const sectionLink = clone.getElementById('section-link');
                 sectionLink.href = steamLink;
+
+                const description = clone.getElementById('description');
+                for(let i = 3; i < lines.length; i++)
+                {
+                    var line = lines[i];
+                    if (line == "DESCRIPTION") continue;
+                    if (line == "") description.innerHTML += "<br>"
+                    if (line == "END DESCRIPTION") break;
+                    description.innerHTML += line;
+                }
 
                 container.appendChild(clone);
             })
