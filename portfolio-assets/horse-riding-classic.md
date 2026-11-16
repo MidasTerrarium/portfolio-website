@@ -1,6 +1,9 @@
 TITLE:Horse Riding Classic
-IMAGE:Images\Main Capsule (6).png
+IMAGE:Images\HRCMainCapsule.png
 STEAMLINK:https://store.steampowered.com/app/4384880/Horse_Riding_Classic/
 DESCRIPTION
-lorem ipsum dolor sit amet consectetur adipiscing elit rerum proident nulla nulla accusamus cillum non in expedita ut occaecat in amet eligendi maxime pariatur provident tempor quis quis minus vel similique culpa fugiat laboris deserunt ad officia dolor non excepturi similique consectetur eos eligendi ea distinctio distinctio voluptate in quo
+Horse Riding Classic is a small, humorous passion project developed over the course of <strong>one month</strong> for the <strong>Steam Horse Fest.</strong> The game grossed a humble <strong>$15,000</strong> and provided pivotal learning in <strong>community building.</strong> The game was also speedran for the <strong>Galloping For The Gals</strong> charity event supporting the Malala Fund.
+
+
+<i>I was a <em>content lead</em> on this project, and responsible for the <em>level design and narrative</em> for the first and last areas of the game. Additionally, I was a <em>supporting programmer</em>, building our dialogue system and other bespoke features.</i>
 END DESCRIPTION
