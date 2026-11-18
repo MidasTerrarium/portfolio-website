@@ -228,3 +228,27 @@ em
     color: var(--secondary-color);
     font-weight: bold;
 }
+
+.extra-strong
+{
+    display: inline-block;
+    font-weight: bolder;
+    color: var(--primary-color);
+    animation: wiggle;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes colorShift {
+    0% {color: var(--primary-color);}
+    50% {color: var(--secondary-color);}
+    100% {color: var(--primary-color);}
+}
+
+@keyframes wiggle {
+    0% { transform: rotate(0deg); }
+   80% { transform: rotate(0deg); }
+   85% { transform: rotate(5deg); }
+   95% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
