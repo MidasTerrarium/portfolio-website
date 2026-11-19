@@ -73,7 +73,7 @@ header, section
     width: min(75em, 100%);
     background-color: var(--dark-grey);
     padding: min(2em, 15%);
-    border-radius: 0.5em;
+    border-radius: 1em;
 }
 
 .flex-container
