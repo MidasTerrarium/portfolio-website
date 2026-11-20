@@ -31,46 +31,51 @@
     <div id="container"></div>
 
     <script>
-        const files = 
+        const portfolioFiles = 
         [
             "sip-fisher",
             "horse-riding-classic",
-            "super-duper-siege",
+            "super-duper-siege"
         ]
 
         const template = document.getElementById('portfolio-section');
-        for (let i = 0; i < files.length; i++)
+        loadFiles(portfolioFiles);
+        
+        async function loadFiles(files)
         {
-            const clone = template.content.cloneNode(true);
-            fetch('portfolio-assets/'+files[i]+'.md')
-            .then(response => response.text())
-            .then(data => {
-                var lines = data.split(/\r?\n/);
-                var title = lines[0].replace("TITLE:", "");
-                var imagePath = lines[1].replace("IMAGE:","");
-                var steamLink = lines[2].replace("STEAMLINK:","");
+            for (const file of files)
+            {
+                const clone = template.content.cloneNode(true);
+                const response = await fetch('portfolio-assets/'+file+'.md')
+                .then(response => response.text())
+                .then(data => {
+                    var lines = data.split(/\r?\n/);
+                    var title = lines[0].replace("TITLE:", "");
+                    var imagePath = lines[1].replace("IMAGE:","");
+                    var steamLink = lines[2].replace("STEAMLINK:","");
 
-                clone.getElementById('title').textContent = title;
-                const sectionImage = clone.getElementById('section-image');
-                sectionImage.src = imagePath;
-                const sectionLink = clone.getElementById('section-link');
-                sectionLink.href = steamLink;
+                    clone.getElementById('title').textContent = title;
+                    const sectionImage = clone.getElementById('section-image');
+                    sectionImage.src = imagePath;
+                    const sectionLink = clone.getElementById('section-link');
+                    sectionLink.href = steamLink;
 
-                const description = clone.getElementById('description');
-                description.innerHTML = "";
-                for(let i = 3; i < lines.length; i++)
-                {
-                    var line = lines[i];
-                    if (line == "DESCRIPTION") continue;
-                    if (line == "") description.innerHTML += "<br>"
-                    if (line == "END DESCRIPTION") break;
-                    description.innerHTML += line;
-                }
+                    const description = clone.getElementById('description');
+                    description.innerHTML = "";
+                    for(let i = 3; i < lines.length; i++)
+                    {
+                        var line = lines[i];
+                        if (line == "DESCRIPTION") continue;
+                        if (line == "") description.innerHTML += "<br>"
+                        if (line == "END DESCRIPTION") break;
+                        description.innerHTML += line;
+                    }
 
-                container.appendChild(clone);
-            })
-            
+                    container.appendChild(clone);
+                })
+            } 
         }
+
     </script>
     
 </body>
